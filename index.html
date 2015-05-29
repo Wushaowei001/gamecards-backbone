@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gamecards</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="wrapper board">
+    <!--<div class="row">
+      <div class="col-md-12">
+        <h1 class="board__title">HEARTHSTONE</h1>
+      </div>
+    </div>-->
+
+    <div class="row board__points">
+      <p>Mis puntos: <span id="pointsMe">0</span> ||| Puntos de la PC: <span id="pointsComputer">0</span></p>
+    </div>
+
+    <div class="row computer" id="player_computer">
+      
+    </div>
+
+    <div class="row me" id="player_me">
+      
+    </div>
+
+    <div class="row board__indications">
+      <p>Elige una de tus cartas para enfrentarte a la carta numero <span class="turn">1</span> de la PC</p>
+    </div>
+
+    <div class="message display_none" id="message">
+      GANASTE
+    </div>
+
+    <div class="card_message alert alert-success display_none" id="win">
+      Ganó tu carta
+    </div>
+
+    <div class="card_message alert alert-warning display_none" id="equal">
+      Empató tu carta
+    </div>
+
+    <div class="card_message alert alert-danger display_none" id="lost">
+      Perdió tu carta
+    </div>
+
+  </div>
+
+
+  <script id="cardTemplate" type="text/template">
+        <div class="board__card player_me">
+          <figure class="card__cover">
+            <img src="http://wow.zamimg.com/images/hearthstone/cards/enus/original/<%= id %>.png" alt="" onerror="src='images/nn.png'">
+          </figure>
+          <div class="card__data">
+            <span class="name">Nombre</span>
+            <span class="name_output"><%= name %></span>
+            <span class="attack">Ataque</span>
+            <span class="attack_output"><%= cost %></span>
+          </div>
+        </div>
+  </script>
+
+  <script id="cardTemplateComputer" type="text/template">
+        <div class="board__card player_computer" id="<%= id %>">
+          <figure class="card__cover">
+            <img src="images/cover.png" alt="">
+          </figure>
+          <div class="card__data">
+            <img src="http://wow.zamimg.com/images/hearthstone/cards/enus/original/<%= id %>.png" alt="" onerror="src='images/nn.png'">
+          </div>
+        </div>
+  </script>
+
+  <!-- Vendor -->
+  <script src="js/vendor/jquery-1.11.0.js"></script>
+  <script src="js/vendor/underscore.js"></script>
+  <script src="js/vendor/backbone.js"></script>
+  <script src="js/vendor/backbone.localStorage.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <!-- Backbone -->
+  <script src="js/backbone/models/card.js"></script>
+  <script src="js/backbone/collections/cards.js"></script>
+  <script src="js/backbone/views/card.js"></script>
+  <script src="js/backbone/views/cards.js"></script>
+  <script src="js/backbone/app.js"></script>
+
+</body>
+</html>
